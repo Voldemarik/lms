@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1-create-student-groups
+      author: voldemar
+      changes:
+        - createTable:
+            tableName: student_groups
+            columns:
+              - column:
+                  name: student_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_student_groups_student
+                    referencedTableName: students
+                    referencedColumnName: id
+                    onDelete: CASCADE
+              - column:
+                  name: group_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_student_groups_group
+                    referencedTableName: groups
+                    referencedColumnName: id
+                    onDelete: CASCADE
+        - addPrimaryKey:
+            tableName: student_groups
+            columnNames: student_id, group_id
+            constraintName: pk_student_groups
+
