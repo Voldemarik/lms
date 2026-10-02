@@ -26,8 +26,11 @@ databaseChangeLog:
               - column:
                   name: teacher_id
                   type: bigint
-                  constraints:
-                    foreignKeyName: fk_teacher_course
-                    referencedTableName: teachers
-                    referencedColumnName: id
-                    onDelete: CASCADE
+
+        - addForeignKeyConstraint:
+            baseTableName: courses
+            baseColumnNames: teacher_id
+            constraintName: fk_teacher_course
+            referencedTableName: teachers
+            referencedColumnNames: id
+            onDelete: CASCADE

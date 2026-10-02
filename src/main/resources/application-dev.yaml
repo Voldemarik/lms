@@ -3,7 +3,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/lms
     username: postgres
     password: postgres
-    driver-class.name: org.postgresql.Driver
+    driver-classname: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: none
@@ -11,7 +11,7 @@ spring:
     properties:
       hibernate:
         format-sql: true
-        dialect: org.nibernate.dialect.PostgreSQLDialect
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 spring doc:
   api-docs:

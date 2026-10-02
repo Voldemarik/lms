@@ -11,21 +11,29 @@ databaseChangeLog:
                   type: bigint
                   constraints:
                     nullable: false
-                    foreignKeyName: fk_group_courses_group
-                    referencedTableName: groups
-                    referencedColumnName: id
-                    onDelete: CASCADE
               - column:
                   name: course_id
                   type: bigint
                   constraints:
                     nullable: false
-                    foreignKeyName: fk_group_courses_course
-                    referencedTableName: courses
-                    referencedColumnName: id
-                    onDelete: CASCADE
+
         - addPrimaryKey:
             tableName: group_courses
             columnNames: group_id, course_id
             constraintName: pk_group_courses
 
+        - addForeignKeyConstraint:
+            baseTableName: group_courses
+            baseColumnNames: group_id
+            constraintName: fk_group_courses_group
+            referencedTableName: groups
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+        - addForeignKeyConstraint:
+            baseTableName: group_courses
+            baseColumnNames: course_id
+            constraintName: fk_group_courses-course
+            referencedTableName: courses
+            referencedColumnNames: id
+            onDelete: CASCADE
