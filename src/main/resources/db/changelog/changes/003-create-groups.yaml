@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3-create-groups
+      author: voldemar
+      changes:
+        - createTable:
+            tableName: groups
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: course_id
+                  type: bigint
+
+        - addForeignKeyConstraint:
+            baseTableName: groups
+            baseColumnNames: course_id
+            constraintName: fk_course_group
+            referencedTableName: courses
+            referencedColumnNames: id
+            onDelete: CASCADE
