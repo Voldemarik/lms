@@ -21,10 +21,14 @@ public class Group {
     @Column(nullable = false, length = 100)
     private String title;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
-
     @ManyToMany(mappedBy = "groups")
     private Set<Student> students;
+
+    @ManyToMany
+    @JoinTable(
+            name="group_courses",
+            joinColumns = @JoinColumn(name = "group_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private Set<Course> courses;
 }

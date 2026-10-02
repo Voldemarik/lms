@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1-create-courses
+      id: 2-create-courses
       author: voldemar
       changes:
         - createTable:

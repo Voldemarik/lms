@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 6-drop-link-course-group
+      author: voldemar
+      changes:
+        - dropForeignKeyConstraint:
+            baseTableName: groups
+            constraintName: fk_course_group
+        - dropColumn:
+            tableName: groups
+            columnName: course_id

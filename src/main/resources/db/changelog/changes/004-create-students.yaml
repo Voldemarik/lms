@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1-create-students
+      id: 4-create-students
       author: voldemar
       changes:
         - createTable:

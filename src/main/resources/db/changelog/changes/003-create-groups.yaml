@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1-create-groups
+      id: 3-create-groups
       author: voldemar
       changes:
         - createTable:
